@@ -1,0 +1,546 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:   #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #0056b3;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Carousel styles */
+#carouselSection {
+    margin-bottom: 40px;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-item {
+    flex: 0 0 220px;
+    margin-right: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.carousel-item img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    height: 150px;
+    width: 100%;
+}
+
+.carousel-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.carousel-item p {
+    font-size: 1rem;
+    color: #555;
+    flex-grow: 1;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.carousel-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+.carousel-item p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,123,255,0.8);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0,123,255,1);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+#itemList {
+    list-style: none;
+}
+
+#itemList li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+#itemList li a {
+    display: block;
+    padding: 15px 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#itemList li a:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Filter controls styles */
+.filter-controls {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.filter-btn {
+    background-color: #e9ecef;
+    border: none;
+    color: #333;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.filter-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    padding: 10px 20px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00aaff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #00aaff;
+}
+
+.nav-search input {
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+/* Hero banner styles */
+.hero-banner {
+    background: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #00aaff;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0088cc;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .logo {
+    color: #00aaff;
+}
+
+body.dark-mode .nav-links li a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .nav-links li a:hover {
+    color: #00aaff;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #005f8c;
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #004a6e;
+}
+
+body.dark-mode .filter-btn {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter-btn:hover {
+    background-color: #00aaff;
+    color: white;
+}
+
+body.dark-mode .product-card {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+body.dark-mode footer {
+    color: #888;
+}
+
+/* Product grid styles */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.product-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    height: 150px;
+    width: 100%;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #555;
+    flex-grow: 1;
+}
+
+.product-card .price {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #00aaff;
+}
+
+/* Sort controls */
+.sort-controls {
+    margin: 10px 0 20px 0;
+    text-align: center;
+}
+
+.sort-controls label {
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.sort-controls select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* Newsletter section */
+.newsletter-section {
+    background-color: #007bff;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 40px 0;
+}
+
+.newsletter-section h2 {
+    margin-bottom: 20px;
+}
+
+#newsletterForm {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#newsletterForm input[type="email"] {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 30px;
+    width: 250px;
+    max-width: 100%;
+    font-size: 1rem;
+    outline: none;
+}
+
+#newsletterForm button {
+    background-color: #004a99;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#newsletterForm button:hover {
+    background-color: #003366;
+}
+
+.message {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* Contact section */
+.contact-section {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.contact-section input,
+.contact-section textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    resize: vertical;
+}
+
+.contact-section button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.contact-section button:hover {
+    background-color: #0056b3;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}

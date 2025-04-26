@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mi PC Lista - Innovador</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo">ROMI's</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Inicio</a></li>
+            <li><a href="#products" class="nav-link">Productos</a></li>
+            <li><a href="#newsletter" class="nav-link">Suscribete</a></li>
+            <li><a href="#contact" class="nav-link">Contacto</a></li>
+            <li><a href="login.html">Iniciar sesión</a></li>
+            <li><button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙</button></li>
+        </ul>
+        <div class="nav-search">
+            <input type="text" id="searchInput" placeholder="Buscar productos..." />
+        </div>
+    </nav>
+
+    <header class="hero-banner" id="home">
+        <div class="hero-content">
+            <h1>Bienvenido a ROMI's</h1>
+            <p>Encuentra los mejores productos para tu PC con las mejores ofertas.</p>
+            <a href="#products" class="btn-primary">Ver Productos</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="products" class="product-section">
+            <h2>Productos Destacados</h2>
+            <div id="filterControls" class="filter-controls">
+                <button class="filter-btn active" data-category="all">Todos</button>
+                <button class="filter-btn" data-category="componentes">Componentes</button>
+                <button class="filter-btn" data-category="perifericos">Periféricos</button>
+                <button class="filter-btn" data-category="accesorios">Accesorios</button>
+            </div>
+            <div class="sort-controls">
+                <label for="sortSelect">Ordenar por:</label>
+                <select id="sortSelect">
+                    <option value="default">Por defecto</option>
+                    <option value="price-asc">Precio: menor a mayor</option>
+                    <option value="price-desc">Precio: mayor a menor</option>
+                    <option value="name-asc">Nombre: A a Z</option>
+                    <option value="name-desc">Nombre: Z a A</option>
+                </select>
+            </div>
+            <div class="product-grid" id="productGrid">
+                <!-- Product cards will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="newsletter" class="newsletter-section">
+            <h2>Suscríbete a ROMI's</h2>
+            <form id="newsletterForm">
+                <input type="email" id="newsletterEmail" placeholder="Tu correo electrónico" required />
+                <button type="submit">Suscribirse</button>
+            </form>
+            <p id="newsletterMessage" class="message"></p>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contacto</h2>
+            <form id="contactForm" novalidate>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required />
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required />
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="contactMessage" class="message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Mi PC Lista - Innovador</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
