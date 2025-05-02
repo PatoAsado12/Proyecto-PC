@@ -210,6 +210,86 @@ footer {
     color: white;
 }
 
+/*Categorias estilos*/
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #111;
+  }
+  
+  .categorias {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .subtitulo {
+    font-size: 25px;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  .titulo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #111;
+  }
+  
+  .grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .categoria {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .categoria:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  }
+  
+  .categoria img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .texto-superpuesto {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    line-height: 1.2;
+  }
+  .categoria a {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    line-height: 1.2;
+    text-decoration: none;
+  }
+  
+
 /* Navbar styles */
 .navbar {
     display: flex;
@@ -361,8 +441,6 @@ body.dark-mode input,
 body.dark-mode textarea,
 body.dark-mode select {
     background-color: #333;
-    color: #e0e0e0;
-    border: 1px solid #555;
 }
 
 body.dark-mode footer {
@@ -375,6 +453,11 @@ body.dark-mode footer {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     margin-top: 20px;
+}
+
+.product-section h2{
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .product-card {
@@ -517,7 +600,7 @@ body.dark-mode footer {
     padding: 10px 15px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 1rem;
     outline: none;
     resize: vertical;
@@ -543,4 +626,144 @@ body.dark-mode footer {
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Chatbox styles */
+.chatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+    z-index: 10000;
+}
+
+.chatbox.closed {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.chatbox-header {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chatbox-header button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.chatbox-messages {
+    flex-grow: 1;
+    padding: 10px 15px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.chatbox-form {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px 15px;
+    background-color: white;
+}
+
+.chatbox-form input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.chatbox-form input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+.chatbox-form button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chatbox-form button:hover {
+    background-color: #0056b3;
+}
+
+.chatbox-open-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+    transition: background-color 0.3s ease;
+    z-index: 10000;
+}
+
+.chatbox-open-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Chat messages styles */
+.chat-message {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message.user .message-text {
+    align-self: flex-end;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 15px 15px 0 15px;
+    max-width: 75%;
+    word-wrap: break-word;
+}
+
+.chat-message.bot .message-text {
+    align-self: flex-start;
+    background-color: #e9ecef;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 15px 15px 15px 0;
+    max-width: 75%;
+    word-wrap: break-word;
 }

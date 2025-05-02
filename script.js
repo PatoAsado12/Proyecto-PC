@@ -173,4 +173,94 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Chatbox functionality
+    const chatbox = document.getElementById('chatbox');
+    const chatboxOpenBtn = document.getElementById('chatboxOpenBtn');
+    const chatboxToggleBtn = document.getElementById('chatboxToggle');
+    const chatboxForm = document.getElementById('chatboxForm');
+    const chatboxInput = document.getElementById('chatboxInput');
+    const chatboxMessages = document.getElementById('chatboxMessages');
+
+    // Toggle chatbox open/close
+    function toggleChatbox() {
+        const isClosed = chatbox.classList.contains('closed');
+        if (isClosed) {
+            chatbox.classList.remove('closed');
+            chatboxToggleBtn.setAttribute('aria-label', 'Cerrar chat');
+            chatboxToggleBtn.parentElement.setAttribute('aria-expanded', 'true');
+            chatboxInput.focus();
+        } else {
+            chatbox.classList.add('closed');
+            chatboxToggleBtn.setAttribute('aria-label', 'Abrir chat');
+            chatboxToggleBtn.parentElement.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    chatboxOpenBtn.addEventListener('click', () => {
+        toggleChatbox();
+    });
+
+    chatboxToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleChatbox();
+    });
+
+    chatboxToggleBtn.parentElement.addEventListener('click', () => {
+        toggleChatbox();
+    });
+
+    // Predefined responses for peripherals and components
+    const responses = [
+        { keywords: ['procesador', 'cpu'], answer: 'El procesador es el cerebro de la computadora, encargado de ejecutar instrucciones.' },
+        { keywords: ['ram', 'memoria'], answer: 'La memoria RAM es la memoria de acceso rápido que usa la computadora para ejecutar programas.' },
+        { keywords: ['disco', 'ssd', 'almacenamiento'], answer: 'El disco SSD es un dispositivo de almacenamiento rápido y confiable para guardar datos.' },
+        { keywords: ['tarjeta de video', 'gpu', 'gráfica'], answer: 'La tarjeta de video procesa los gráficos y es esencial para juegos y diseño.' },
+        { keywords: ['teclado'], answer: 'El teclado es un periférico de entrada para escribir y controlar la computadora.' },
+        { keywords: ['mouse', 'ratón'], answer: 'El mouse es un periférico de entrada que permite controlar el cursor en la pantalla.' },
+        { keywords: ['monitor', 'pantalla'], answer: 'El monitor es el dispositivo de salida que muestra la imagen generada por la computadora.' },
+        { keywords: ['auriculares', 'audífonos'], answer: 'Los auriculares permiten escuchar audio de la computadora de forma privada.' },
+        { keywords: ['webcam', 'cámara'], answer: 'La webcam es una cámara para videollamadas y grabación de video.' },
+        { keywords: ['periféricos'], answer: 'Los periféricos son dispositivos externos como teclado, mouse, impresoras, etc.' },
+        { keywords: ['componentes'], answer: 'Los componentes son partes internas como procesador, memoria, disco, tarjeta gráfica, etc.' },
+        { keywords: ['ayuda', 'hola', 'hola'], answer: 'Hola! Puedes preguntarme sobre periféricos y componentes para computadoras.' }
+    ];
+
+    // Function to add message to chatbox
+    function addMessage(text, sender) {
+        const messageElem = document.createElement('div');
+        messageElem.classList.add('chat-message', sender);
+        const messageText = document.createElement('div');
+        messageText.classList.add('message-text');
+        messageText.textContent = text;
+        messageElem.appendChild(messageText);
+        chatboxMessages.appendChild(messageElem);
+        chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+    }
+
+    // Function to get response based on user input
+    function getResponse(input) {
+        const lowerInput = input.toLowerCase();
+        for (const resp of responses) {
+            for (const keyword of resp.keywords) {
+                if (lowerInput.includes(keyword)) {
+                    return resp.answer;
+                }
+            }
+        }
+        return 'Lo siento, no tengo información sobre eso. Por favor, pregunta sobre periféricos o componentes para computadoras.';
+    }
+
+    // Handle chatbox form submission
+    chatboxForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const userInput = chatboxInput.value.trim();
+        if (userInput === '') return;
+        addMessage(userInput, 'user');
+        chatboxInput.value = '';
+        const botResponse = getResponse(userInput);
+        setTimeout(() => {
+            addMessage(botResponse, 'bot');
+        }, 500);
+    });
 });

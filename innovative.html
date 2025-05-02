@@ -12,7 +12,7 @@
         <ul class="nav-links">
             <li><a href="#home" class="nav-link">Inicio</a></li>
             <li><a href="#products" class="nav-link">Productos</a></li>
-            <li><a href="#newsletter" class="nav-link">Suscribete</a></li>
+            <li><a href="#newsletter" class="nav-link">Suscribete</a></li>  
             <li><a href="#contact" class="nav-link">Contacto</a></li>
             <li><a href="login.html">Iniciar sesión</a></li>
             <li><button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙</button></li>
@@ -27,8 +27,57 @@
             <h1>Bienvenido a ROMI's</h1>
             <p>Encuentra los mejores productos para tu PC con las mejores ofertas.</p>
             <a href="#products" class="btn-primary">Ver Productos</a>
-        </div>
+        </div>  
     </header>
+
+    <section class="categorias">
+        <h3 class="subtitulo">Categorías</h3>
+        <h1 class="titulo">Explore nuestra gama de productos</h1>
+        
+        <div class="grid-categorias">
+          <div class="categoria">
+            <img src="imagenes/laptop.png" alt="Laptops">
+            <a href="">LAPTOPS</a>
+          </div>
+          <div class="categoria">
+            <img src="imagenes/gamer.png" alt="Gamer">
+            <a href="">GAMER</a>
+          </div>
+          <div class="categoria">
+            <img src="imagenes/oficinass.png" alt="Oficina">
+            <a href="">OFICINA</a>
+          </div>
+          <div class="categoria">   
+            <img src="" alt="Ingeniería">
+            <a href="">INGENIERÍA &<br>DISEÑO GRÁFICO</a>
+          </div>
+          <div class="categoria">
+            <img src="" alt="Todo en uno">
+            <a href="">TODO EN UNO</a>
+          </div>
+          <div class="categoria">
+            <img src="" alt="Impresoras">
+            <a href="">IMPRESORAS</a>
+          </div>
+          <div class="categoria">
+            <img src="" alt="Accesorios">
+            <a href="">ACCESORIOS</a>
+          </div>
+          <div class="categoria">
+            <img src="" alt="Pantallas">
+            <a href="">PANTALLAS</a>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
 
     <main>
         <section id="products" class="product-section">
@@ -83,5 +132,19 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <div id="chatbox" class="chatbox closed" aria-live="polite" aria-label="Asesor Virtual Chatbox">
+        <div class="chatbox-header" id="chatboxHeader" role="button" tabindex="0" aria-expanded="false" aria-controls="chatboxMessages">
+            <span>Asesor Virtual</span>
+            <button id="chatboxToggle" aria-label="Cerrar chat">×</button>
+        </div>
+        <div class="chatbox-messages" id="chatboxMessages" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <form id="chatboxForm" class="chatbox-form" aria-label="Enviar mensaje al asesor virtual">
+            <input type="text" id="chatboxInput" placeholder="Escribe tu pregunta..." autocomplete="off" aria-required="true" />
+            <button type="submit" aria-label="Enviar mensaje">Enviar</button>
+        </form>
+    </div>
+
+    <button id="chatboxOpenBtn" class="chatbox-open-btn" aria-label="Abrir Asesor Virtual">💬</button>
 </body>
 </html>

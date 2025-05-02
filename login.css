@@ -38,10 +38,19 @@ body{
         margin: 15px 0;
     }
 
-    .container li a {
+    .container a {
         font-size: 14.5px;
         margin: 15px 0;
         color: black;
+
+    }
+
+    .container li {
+        font-size: 14.5px;
+        margin-bottom: 15px;
+        color: black;
+        font-weight: 800;
+
     }
     
 
