@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restablecer Contraseña</title>
+  <link rel="stylesheet" href="cambiar_contrasena.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <form id="resetForm">
+        <h1>Restablecer Contraseña</h1>
+        <p>Ingresa tu nueva contraseña para continuar</p>
+
+        <div class="input-box">
+          <input type="password" id="password" placeholder="Nueva contraseña" required />
+          <i class="fas fa-lock"></i>
+        </div>
+
+        <div class="input-box">
+          <input type="password" id="confirmPassword" placeholder="Confirmar nueva contraseña" required />
+          <i class="fas fa-lock"></i>
+        </div>
+
+        <button type="submit" class="btn">Restablecer</button>
+        <p id="message"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("resetForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const message = document.getElementById("message");
+
+      if (password !== confirmPassword) {
+        message.textContent = "Las contraseñas no coinciden";
+        message.style.color = "red";
+        return;
+      }
+
+      const token = new URLSearchParams(window.location.search).get("token");
+      if (!token)   {
+        message.textContent = "Token no válido o faltante";
+        message.style.color = "red";
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost:3000/api/cambiar_contrasena", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token, nueva_contraseña: password }),
+        });
+
+        const text = await res.text();
+        message.textContent = text;
+        message.style.color = res.ok ? "green" : "red";
+      } catch (error) {
+        message.textContent = "Error al conectar con el servidor";
+        message.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
