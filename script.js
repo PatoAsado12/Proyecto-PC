@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Product data for innovative page
     const products = [
-        { id: 1, name: 'Procesador Intel i7', category: 'componentes', price: 320, image: 'https://via.placeholder.com/200x150?text=Procesador+i7', description: 'Procesador de alto rendimiento para gaming y trabajo.' },
-        { id: 2, name: 'Memoria RAM 16GB', category: 'componentes', price: 120, image: 'https://via.placeholder.com/200x150?text=RAM+16GB', description: 'Memoria rápida y confiable para multitarea.' },
-        { id: 3, name: 'Teclado Mecánico', category: 'perifericos', price: 80, image: 'https://via.placeholder.com/200x150?text=Teclado+Mecánico', description: 'Teclado con retroiluminación y teclas programables.' },
-        { id: 4, name: 'Mouse Gamer', category: 'perifericos', price: 50, image: 'https://via.placeholder.com/200x150?text=Mouse+Gamer', description: 'Mouse ergonómico con alta precisión.' },
+        { id: 1, name: 'Procesador Intel i7', category: 'componentes', price: 320, image: '', description: 'Procesador de alto rendimiento para gaming y trabajo.' },
+        { id: 2, name: 'Memoria RAM 16GB', category: 'componentes', price: 120, image: 'https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/447/PMP20000099865/imagen4-1.jpeg', description: 'Memoria rápida y confiable para multitarea.' },
+        { id: 3, name: 'Teclado Mecánico', category: 'perifericos', price: 80, image: 'https://phantom.pe/media/catalog/product/cache/c58c05327f55128aefac5642661cf3d1/m/e/meanico.jpg', description: 'Teclado con retroiluminación y teclas programables.' },
+        { id: 4, name: 'Mouse Gamer', category: 'perifericos', price: 50, image: 'https://www.kabifperu.com/imagenes/prod-12052021101729-mouse-logitech-g-g203-lightsync-910-005792-azul-gaming-led-rgb-deta.jpg', description: 'Mouse ergonómico con alta precisión.' },
         { id: 5, name: 'Monitor 24"', category: 'accesorios', price: 200, image: 'https://via.placeholder.com/200x150?text=Monitor+24"', description: 'Monitor Full HD con colores vibrantes.' },
         { id: 6, name: 'Auriculares Bluetooth', category: 'accesorios', price: 70, image: 'https://via.placeholder.com/200x150?text=Auriculares+Bluetooth', description: 'Auriculares inalámbricos con cancelación de ruido.' },
         { id: 7, name: 'Disco SSD 1TB', category: 'componentes', price: 150, image: 'https://via.placeholder.com/200x150?text=SSD+1TB', description: 'Almacenamiento rápido y confiable.' },
@@ -98,6 +98,128 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial render
     renderProducts();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+   // Newsletter form submission
+
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = newsletterEmail.value.trim();
+
+        if (email === '') {
+            newsletterMessage.textContent = 'Por favor, ingresa un correo electrónico válido.';
+            newsletterMessage.style.color = 'red';
+            return;
+        }
+
+        // Validación de correo
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            newsletterMessage.textContent = 'Correo electrónico no válido.';
+            newsletterMessage.style.color = 'red';
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/suscribirse', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                newsletterMessage.textContent = data.mensaje || '¡Gracias por suscribirte!';
+                newsletterMessage.style.color = 'green';
+                newsletterForm.reset();
+            } else {
+                newsletterMessage.textContent = data.mensaje || 'Hubo un error al suscribirse.';
+                newsletterMessage.style.color = 'red';
+            }
+        } catch (error) {
+            console.error('Error al enviar solicitud:', error);
+            newsletterMessage.textContent = 'Error de red. Intenta más tarde.';
+            newsletterMessage.style.color = 'red';
+        }
+
+        // Ocultar mensaje luego de unos segundos
+        setTimeout(() => {
+            newsletterMessage.textContent = '';
+        }, 5000);
+    });
+}
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Newsletter form submission
     const newsletterForm = document.getElementById('newsletterForm');
     const newsletterEmail = document.getElementById('newsletterEmail');
@@ -150,6 +272,13 @@ document.addEventListener('DOMContentLoaded', () => {
         contactMessage.style.color = 'green';
         contactForm.reset();
     });
+
+
+
+
+
+
+
 
     // Sticky navbar background change on scroll
     const navbar = document.getElementById('navbar');
@@ -263,4 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addMessage(botResponse, 'bot');
         }, 500);
     });
+
+
+
 });
